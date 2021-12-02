@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApp5
+{
+    class Challenge
+    {
+        public int Number { get; set; }
+        public DateTime Time { get; set; }
+        public string Name { get; set; }
+
+        public Challenge(int number, DateTime time, string name)
+        {
+            this.Number = number;
+            this.Time = time;
+            this.Name = name;
+        }
+    }
+
+    class Test : Challenge
+    {
+        public string TimeLimit { get; set; }
+
+        public Test(int number, DateTime time, string name, string timelimit) : base(number, time, name)
+        {
+            TimeLimit = timelimit;
+        }
+    }
+
+    class Exam : Challenge
+    {
+        public string Subject { get; set; }
+
+        public Exam(int number, DateTime time, string name, string subject) : base(number, time, name)
+        {
+            Subject = subject;
+        }
+    }
+
+    class FinalExam : Exam
+    {
+        public string Zno { get; set; }
+
+        public FinalExam(int number, DateTime time, string name, string zno, string subject) : base(number, time, name, subject)
+        {
+            Zno = zno;
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            FinalExam final = new FinalExam(3, DateTime.Now, "Hora", "ZNO 2022", "English");
+            Console.WriteLine(final.Subject);
+            Console.ReadLine();
+
+        }
+    }
+}
